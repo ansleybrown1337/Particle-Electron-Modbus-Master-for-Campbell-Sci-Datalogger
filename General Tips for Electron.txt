@@ -1,0 +1,6 @@
+****REGARDING RED LED ON ELECTRON BOARD (NOT PRIMARY LED)****
+The battery should charge when you have the USB plugged in to the Electron.
+
+There is a red LED that lights up when the battery is charging above 50mA and the LED is off when the charging current is below 50mA.
+
+The red LED will flash rapidly if you connect the USB port with no battery connected.

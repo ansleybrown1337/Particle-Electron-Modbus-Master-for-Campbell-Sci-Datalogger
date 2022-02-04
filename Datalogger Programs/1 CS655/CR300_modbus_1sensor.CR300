@@ -1,0 +1,73 @@
+'CR300 Series
+'Created by Short Cut (4.0)
+
+'Declare Variables and Units
+Public BattV
+Public PTemp_C
+Public CS65X(6)
+Public Modbus(4) As Long
+Public ModbusCoil(4) As Boolean
+
+Alias CS65X(1)=VWC
+Alias CS65X(2)=EC
+Alias CS65X(3)=T
+Alias CS65X(4)=P
+Alias CS65X(5)=PA
+Alias CS65X(6)=VR
+
+Units BattV=Volts
+Units PTemp_C=Deg C
+Units VWC=m^3/m^3
+Units EC=dS/m
+Units T=Deg C
+Units P=unitless
+Units PA=nSec
+Units VR=unitless
+
+'Define Data Tables
+DataTable(Hourly_Table,True,-1)
+	DataInterval(0,60,Min,10)
+	Average(1,VWC,FP2,False)
+	Average(1,EC,FP2,False)
+	Average(1,T,FP2,False)
+	Average(1,P,FP2,False)
+	Average(1,PA,FP2,False)
+	Average(1,VR,FP2,False)
+EndTable
+
+DataTable(Daily_Table,True,-1)
+	DataInterval(0,1440,Min,10)
+	Minimum(1,BattV,FP2,False,False)
+	Average(1,VWC,FP2,False)
+	Average(1,EC,FP2,False)
+	Average(1,T,FP2,False)
+	Average(1,P,FP2,False)
+	Average(1,PA,FP2,False)
+	Average(1,VR,FP2,False)
+EndTable
+
+'Main Program
+BeginProg
+	'Use SerialOpen to set RS232 options for Modbus Slave Instruction
+	 SerialOpen(COMRS232,9600,3,0,1000)
+	'Modbus Slave Instruction
+	ModbusSlave(COMRS232,9600,1,Modbus(),ModbusCoil(),1)
+
+	'Main Scan
+	Scan(5,Sec,1,0)
+		'Default CR300 Datalogger Battery Voltage measurement 'BattV'
+		Battery(BattV)
+		'Default CR300 Datalogger Processor Temperature measurement 'PTemp_C'
+		PanelTemp(PTemp_C,60)
+		'CS650/655 Water Content Reflectometer measurements 'VWC', 'EC', 'T','P', 'PA', and 'VR'
+		SDI12Recorder(CS65X(),C1,"4","M4!",1,0,-1)
+		'Call Data Tables and Store Data
+		CallTable Hourly_Table
+		CallTable Daily_Table
+		'Copy values/measurements to Modbus Array
+		Modbus(1)=VWC * 100
+		Modbus(2)=EC * 100
+		Modbus(3)=T * 100
+		Modbus(4)=P * 100
+	NextScan
+EndProg

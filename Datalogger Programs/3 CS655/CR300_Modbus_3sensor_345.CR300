@@ -1,0 +1,136 @@
+'CR300 Series
+'Created by Short Cut (4.0)
+
+'Declare Variables and Units
+Public BattV
+Public PTemp_C
+Public CS65X(6)
+Public CS65X_2(6)
+Public CS65X_3(6)
+Public Modbus(12) As Long
+Public ModbusCoil(12) As Boolean
+
+Alias CS65X(1)=VWC
+Alias CS65X(2)=EC
+Alias CS65X(3)=T
+Alias CS65X(4)=P
+Alias CS65X(5)=PA
+Alias CS65X(6)=VR
+Alias CS65X_2(1)=VWC_2
+Alias CS65X_2(2)=EC_2
+Alias CS65X_2(3)=T_2
+Alias CS65X_2(4)=P_2
+Alias CS65X_2(5)=PA_2
+Alias CS65X_2(6)=VR_2
+Alias CS65X_3(1)=VWC_3
+Alias CS65X_3(2)=EC_3
+Alias CS65X_3(3)=T_3
+Alias CS65X_3(4)=P_3
+Alias CS65X_3(5)=PA_3
+Alias CS65X_3(6)=VR_3
+
+Units BattV=Volts
+Units PTemp_C=Deg C
+Units VWC=m^3/m^3
+Units EC=dS/m
+Units T=Deg C
+Units P=unitless
+Units PA=nSec
+Units VR=unitless
+Units VWC_2=m^3/m^3
+Units EC_2=dS/m
+Units T_2=Deg C
+Units P_2=unitless
+Units PA_2=nSec
+Units VR_2=unitless
+Units VWC_3=m^3/m^3
+Units EC_3=dS/m
+Units T_3=Deg C
+Units P_3=unitless
+Units PA_3=nSec
+Units VR_3=unitless
+
+'Define Data Tables
+DataTable(Table1,True,-1)
+	DataInterval(0,60,Min,10)
+	Average(1,VWC,FP2,False)
+	FieldNames("VWC_AVG_3")
+	Average(1,EC,FP2,False)
+	FieldNames("EC_AVG_3")
+	Average(1,T,FP2,False)
+	FieldNames("T_AVG_3")
+	Average(1,P,FP2,False)
+	FieldNames("P_AVG_3")
+	Average(1,VWC_2,FP2,False)
+	FieldNames("VWC_4_AVG")
+	Average(1,EC_2,FP2,False)
+	FieldNames("EC_4_AVG")
+	Average(1,T_2,FP2,False)
+	FieldNames("T_4_AVG")
+	Average(1,P_2,FP2,False)
+	FieldNames("P_4_AVG")
+	Average(1,VWC_3,FP2,False)
+	FieldNames("VWC_5_AVG")
+	Average(1,EC_3,FP2,False)
+	FieldNames("EC_5_AVG")
+	Average(1,T_3,FP2,False)
+	FieldNames("T_5_AVG")
+	Average(1,P_3,FP2,False)
+	FieldNames("P_5_AVG")
+EndTable
+
+DataTable(Table2,True,-1)
+	DataInterval(0,1440,Min,10)
+	Minimum(1,BattV,FP2,False,False)
+	Average(1,VWC,FP2,False)
+	Average(1,EC,FP2,False)
+	Average(1,T,FP2,False)
+	Average(1,P,FP2,False)
+	Average(1,VWC_2,FP2,False)
+	Average(1,EC_2,FP2,False)
+	Average(1,T_2,FP2,False)
+	Average(1,P_2,FP2,False)
+	Average(1,VWC_3,FP2,False)
+	Average(1,EC_3,FP2,False)
+	Average(1,T_3,FP2,False)
+	Average(1,P_3,FP2,False)
+EndTable
+
+'Main Program
+BeginProg
+	'Use SerialOpen to set RS232 options for Modbus Slave Instruction
+	 SerialOpen(COMRS232,9600,3,0,1000)
+	'Modbus Slave Instruction
+	ModbusSlave(COMRS232,9600,1,Modbus(),ModbusCoil(),1)
+
+	'Main Scan
+	Scan(30,Sec,1,0)
+		'Default CR300 Datalogger Battery Voltage measurement 'BattV'
+		Battery(BattV)
+		'Default CR300 Datalogger Processor Temperature measurement 'PTemp_C'
+		PanelTemp(PTemp_C,60)
+		'CS650/655 Water Content Reflectometer measurements 'VWC', 'EC', 'T','P', 'PA', and 'VR'
+		SDI12Recorder(CS65X(),C1,"3","M4!",1,0,-1)
+		'CS650/655 Water Content Reflectometer measurements 'VWC_2', 'EC_2', 'T_2','P_2', 'PA_2', and 'VR_2'
+		SDI12Recorder(CS65X_2(),C1,"4","M4!",1,0,-1)
+		'CS650/655 Water Content Reflectometer measurements 'VWC_3', 'EC_3', 'T_3','P_3', 'PA_3', and 'VR_3'
+		SDI12Recorder(CS65X_3(),C1,"5","M4!",1,0,-1)
+		'Call Data Tables and Store Data
+		CallTable Table1
+		CallTable Table2
+		'Copy values/measurements to Modbus Array
+		Modbus(1)=VWC * 1000
+		Modbus(2)=EC * 1000
+		Modbus(3)=T * 1000
+		Modbus(4)=P * 1000
+		Modbus(5)=VWC_2 * 1000
+		Modbus(6)=EC_2 * 1000
+		Modbus(7)=T_2 * 1000
+		Modbus(8)=P_2 * 1000
+		Modbus(9)=VWC_3 * 1000
+		Modbus(10)=EC_3 * 1000
+		Modbus(11)=T_3 * 1000
+		Modbus(12)=P_3 * 1000
+	NextScan
+EndProg
+           

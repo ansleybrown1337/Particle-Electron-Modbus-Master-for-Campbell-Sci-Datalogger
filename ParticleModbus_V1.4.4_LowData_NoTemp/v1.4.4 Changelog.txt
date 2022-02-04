@@ -1,0 +1,17 @@
+Particle Photon/Electron Modbus Master
+Created by A.J. Brown and Sam Gallo, 06/06/18 version 1.4.4
+This project was designed to allow a particle photon or electron to act as a
+modbus master for a Campbell Scientific datalogger (as Slave) set up with 14
+registers that hold water content reflectometer data from 3 CS655 sensors.
+
+Updated in 1.4.4
+-Removed "calibrated" because it is an unnecessary variable that should be taken care of in post processing
+-Added "ReadingTime" variable to make it user friendly when deciding time between readings
+-Changed sleep function to be a function of the reading time.
+ The device will always wake up 5 min before the next reading.
+
+Future Goals:
+-add a way to automatically read for x number of sensors based on input value
+-Find other ways to reduce amount of data sent
+-Take 15 minute readings, and average them into hourly readings to send
+	-could come out of other sleep modes that retain RAM

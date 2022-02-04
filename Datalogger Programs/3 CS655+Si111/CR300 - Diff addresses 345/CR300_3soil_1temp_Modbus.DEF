@@ -1,0 +1,162 @@
+4/25/2018
+11:50:37
+Created by Short Cut (4.0)
+Short Cut Program:  CR300_3soil_1temp_Modbus.DEF
+
+-Wiring for CR300 Series-
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (1)
+    BAT +:  Red
+    G:  Black
+    G:  Clear
+    G:  Orange
+    C1:  Green
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (2)
+    BAT +:  Red
+    G:  Black
+    G:  Clear
+    G:  Orange
+    C1:  Green
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (3)
+    BAT +:  Red
+    G:  Black
+    G:  Clear
+    G:  Orange
+    C1:  Green
+
+  SI-111 Precision Infrared Radiometer
+    VX1:  White
+    1H:  Green
+    Ground:  Blue
+    2H:  Red
+    2L:  Black
+    Ground:  Clear
+
+-Measurement Labels-
+
+  Default Measurements
+    BattV
+    PTemp_C
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (1)
+    VWC_0
+    EC_0
+    T_0
+    P_0
+    PA_0
+    VR_0
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (2)
+    VWC_1
+    EC_1
+    T_1
+    P_1
+    PA_1
+    VR_1
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (3)
+    VWC_2
+    EC_2
+    T_2
+    P_2
+    PA_2
+    VR_2
+
+  SI-111 Precision Infrared Radiometer
+    TT_C
+    SBT_C
+
+----------------------------------------------------
+Table: Hourly
+Interval: 60 MIN
+Fields:
+ VWC_0_Avg	Units: m^3/m^3
+ EC_0_Avg	Units: dS/m
+ T_0_Avg	Units: Deg C
+ P_0_Avg	Units: unitless
+ PA_0_Avg	Units: nSec
+ VR_0_Avg	Units: unitless
+ VWC_1_Avg	Units: m^3/m^3
+ EC_1_Avg	Units: dS/m
+ T_1_Avg	Units: Deg C
+ P_1_Avg	Units: unitless
+ PA_1_Avg	Units: nSec
+ VR_1_Avg	Units: unitless
+ VWC_2_Avg	Units: m^3/m^3
+ EC_2_Avg	Units: dS/m
+ T_2_Avg	Units: Deg C
+ P_2_Avg	Units: unitless
+ PA_2_Avg	Units: nSec
+ VR_2_Avg	Units: unitless
+ TT_C_Avg	Units: Deg C
+ SBT_C_Avg	Units: Deg C
+
+----------------------------------------------------
+Table: Daily
+Interval: 1440 MIN
+Fields:
+ BattV_Min	Units: Volts
+ VWC_0_Avg	Units: m^3/m^3
+ EC_0_Avg	Units: dS/m
+ T_0_Avg	Units: Deg C
+ P_0_Avg	Units: unitless
+ PA_0_Avg	Units: nSec
+ VR_0_Avg	Units: unitless
+ VWC_1_Avg	Units: m^3/m^3
+ EC_1_Avg	Units: dS/m
+ T_1_Avg	Units: Deg C
+ P_1_Avg	Units: unitless
+ PA_1_Avg	Units: nSec
+ VR_1_Avg	Units: unitless
+ VWC_2_Avg	Units: m^3/m^3
+ EC_2_Avg	Units: dS/m
+ T_2_Avg	Units: Deg C
+ P_2_Avg	Units: unitless
+ PA_2_Avg	Units: nSec
+ VR_2_Avg	Units: unitless
+ TT_C_Avg	Units: Deg C
+ SBT_C_Avg	Units: Deg C
+
+----------------------------------------------------
+Table: DataTableInfo
+Fields:
+ DataTableName(1)
+ DataTableName(2)
+ SkippedRecord(1)
+ SkippedRecord(2)
+ DataRecordSize(1)	Units: records
+ DataRecordSize(2)	Units: records
+ SecsPerRecord(1)
+ SecsPerRecord(2)
+ DataFillDays(1)	Units: days
+ DataFillDays(2)	Units: days
+
+----------------------------------------------------
+Table: Public
+Fields:
+ BattV	Units: Volts
+ PTemp_C	Units: Deg C
+ VWC_0	Units: m^3/m^3
+ EC_0	Units: dS/m
+ T_0	Units: Deg C
+ P_0	Units: unitless
+ PA_0	Units: nSec
+ VR_0	Units: unitless
+ VWC_1	Units: m^3/m^3
+ EC_1	Units: dS/m
+ T_1	Units: Deg C
+ P_1	Units: unitless
+ PA_1	Units: nSec
+ VR_1	Units: unitless
+ VWC_2	Units: m^3/m^3
+ EC_2	Units: dS/m
+ T_2	Units: Deg C
+ P_2	Units: unitless
+ PA_2	Units: nSec
+ VR_2	Units: unitless
+ TT_C	Units: Deg C
+ SBT_C	Units: Deg C
+ TTmV
+

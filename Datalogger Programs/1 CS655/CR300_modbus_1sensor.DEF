@@ -1,0 +1,77 @@
+1/24/2018
+13:42:07
+Created by Short Cut (4.0)
+Short Cut Program:  CR300_modbus_1sensor.DEF
+
+-Wiring for CR300 Series-
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR)
+    BAT +:  Red
+    G:  Black
+    G:  Clear
+    G:  Orange
+    C1:  Green
+
+-Measurement Labels-
+
+  Default Measurements
+    BattV
+    PTemp_C
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR)
+    VWC
+    EC
+    T
+    P
+    PA
+    VR
+
+----------------------------------------------------
+Table: Hourly_Table
+Interval: 60 MIN
+Fields:
+ VWC_Avg	Units: m^3/m^3
+ EC_Avg	Units: dS/m
+ T_Avg	Units: Deg C
+ P_Avg	Units: unitless
+ PA_Avg	Units: nSec
+ VR_Avg	Units: unitless
+
+----------------------------------------------------
+Table: Daily_Table
+Interval: 1440 MIN
+Fields:
+ BattV_Min	Units: Volts
+ VWC_Avg	Units: m^3/m^3
+ EC_Avg	Units: dS/m
+ T_Avg	Units: Deg C
+ P_Avg	Units: unitless
+ PA_Avg	Units: nSec
+ VR_Avg	Units: unitless
+
+----------------------------------------------------
+Table: DataTableInfo
+Fields:
+ DataTableName(1)
+ DataTableName(2)
+ SkippedRecord(1)
+ SkippedRecord(2)
+ DataRecordSize(1)	Units: records
+ DataRecordSize(2)	Units: records
+ SecsPerRecord(1)
+ SecsPerRecord(2)
+ DataFillDays(1)	Units: days
+ DataFillDays(2)	Units: days
+
+----------------------------------------------------
+Table: Public
+Fields:
+ BattV	Units: Volts
+ PTemp_C	Units: Deg C
+ VWC	Units: m^3/m^3
+ EC	Units: dS/m
+ T	Units: Deg C
+ P	Units: unitless
+ PA	Units: nSec
+ VR	Units: unitless
+

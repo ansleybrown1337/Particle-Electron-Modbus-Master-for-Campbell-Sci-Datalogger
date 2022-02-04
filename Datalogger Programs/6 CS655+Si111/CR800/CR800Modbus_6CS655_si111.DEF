@@ -1,0 +1,283 @@
+3/28/2018
+08:54:01
+Created by Short Cut (4.0)
+Short Cut Program:  CR800Modbus_6CS655_si111.DEF
+
+-Sensor Documentation-
+ 
+  Modbus Slave
+    Modbus address set to 1
+    Campbell Scientific dataloggers do not differentiate between holding and input registers.
+    A Campbell Scientific datalogger will respond to a Modbus poll for a holding register (function code 03) or Input register (function code 04) with the same result
+    (e.g. if BattVolts is located in registers 1 & 2,  the same value will be returned whether the Modbus poll is for registers 30001/30002 or 40001/40002).
+    The same goes for 16 bit values only instead of returning two registers one is returned.
+     
+
+-Wiring for CR800 Series-
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (1)
+    G:  Black
+    G:  Clear
+    G:  Orange
+    12V:  Red
+    C1:  Green
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (2)
+    G:  Black
+    G:  Clear
+    G:  Orange
+    12V:  Red
+    C1:  Green
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (3)
+    G:  Black
+    G:  Clear
+    G:  Orange
+    12V:  Red
+    C1:  Green
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (4)
+    G:  Black
+    G:  Clear
+    G:  Orange
+    12V:  Red
+    C1:  Green
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (5)
+    G:  Black
+    G:  Clear
+    G:  Orange
+    12V:  Red
+    C1:  Green
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (6)
+    G:  Black
+    G:  Clear
+    G:  Orange
+    12V:  Red
+    C1:  Green
+
+  SI-111 Precision Infrared Radiometer
+    1H:  Green
+    Ground:  Blue
+    Ground:  Clear
+    2H:  Red
+    2L:  Black
+    VX1 or EX1:  White
+
+-Measurement Labels-
+
+  Default Measurements
+    BattV
+    PTemp_C
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (1)
+    VWC
+    EC
+    T
+    P
+    PA
+    VR
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (2)
+    VWC_2
+    EC_2
+    T_2
+    P_2
+    PA_2
+    VR_2
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (3)
+    VWC_3
+    EC_3
+    T_3
+    P_3
+    PA_3
+    VR_3
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (4)
+    VWC_4
+    EC_4
+    T_4
+    P_4
+    PA_4
+    VR_4
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (5)
+    VWC_5
+    EC_5
+    T_5
+    P_5
+    PA_5
+    VR_5
+
+  CS650/655 Water Content Reflectometer (VWC, EC, T, P, PA, and VR) (6)
+    VWC_6
+    EC_6
+    T_6
+    P_6
+    PA_6
+    VR_6
+
+  SI-111 Precision Infrared Radiometer
+    TT_C
+    SBT_C
+
+  Modbus Slave
+
+----------------------------------------------------
+Table: Hourly
+Interval: 60 MIN
+Fields:
+ VWC_Avg	Units: m^3/m^3
+ EC_Avg	Units: dS/m
+ T_Avg	Units: Deg C
+ P_Avg	Units: unitless
+ PA_Avg	Units: nSec
+ VWC_2_Avg	Units: m^3/m^3
+ EC_2_Avg	Units: dS/m
+ T_2_Avg	Units: Deg C
+ P_2_Avg	Units: unitless
+ PA_2_Avg	Units: nSec
+ VWC_3_Avg	Units: m^3/m^3
+ EC_3_Avg	Units: dS/m
+ T_3_Avg	Units: Deg C
+ P_3_Avg	Units: unitless
+ PA_3_Avg	Units: nSec
+ VWC_4_Avg	Units: m^3/m^3
+ EC_4_Avg	Units: dS/m
+ T_4_Avg	Units: Deg C
+ P_4_Avg	Units: unitless
+ PA_4_Avg	Units: nSec
+ VWC_5_Avg	Units: m^3/m^3
+ EC_5_Avg	Units: dS/m
+ T_5_Avg	Units: Deg C
+ P_5_Avg	Units: unitless
+ PA_5_Avg	Units: nSec
+ VWC_6_Avg	Units: m^3/m^3
+ EC_6_Avg	Units: dS/m
+ T_6_Avg	Units: Deg C
+ P_6_Avg	Units: unitless
+ PA_6_Avg	Units: nSec
+ TT_C_Avg	Units: Deg C
+ SBT_C_Avg	Units: Deg C
+
+----------------------------------------------------
+Table: Daily
+Interval: 1440 MIN
+Fields:
+ BattV_Min	Units: Volts
+ VWC_Avg	Units: m^3/m^3
+ EC_Avg	Units: dS/m
+ T_Avg	Units: Deg C
+ P_Avg	Units: unitless
+ PA_Avg	Units: nSec
+ VWC_2_Avg	Units: m^3/m^3
+ EC_2_Avg	Units: dS/m
+ T_2_Avg	Units: Deg C
+ P_2_Avg	Units: unitless
+ PA_2_Avg	Units: nSec
+ VWC_3_Avg	Units: m^3/m^3
+ EC_3_Avg	Units: dS/m
+ T_3_Avg	Units: Deg C
+ P_3_Avg	Units: unitless
+ PA_3_Avg	Units: nSec
+ VWC_4_Avg	Units: m^3/m^3
+ EC_4_Avg	Units: dS/m
+ T_4_Avg	Units: Deg C
+ P_4_Avg	Units: unitless
+ PA_4_Avg	Units: nSec
+ VWC_5_Avg	Units: m^3/m^3
+ EC_5_Avg	Units: dS/m
+ T_5_Avg	Units: Deg C
+ P_5_Avg	Units: unitless
+ PA_5_Avg	Units: nSec
+ VWC_6_Avg	Units: m^3/m^3
+ EC_6_Avg	Units: dS/m
+ T_6_Avg	Units: Deg C
+ P_6_Avg	Units: unitless
+ PA_6_Avg	Units: nSec
+ TT_C_Avg	Units: Deg C
+ SBT_C_Avg	Units: Deg C
+
+----------------------------------------------------
+Table: DataTableInfo
+Fields:
+ DataTableName(1)
+ DataTableName(2)
+ SkippedRecord(1)
+ SkippedRecord(2)
+ DataRecordSize(1)	Units: records
+ DataRecordSize(2)	Units: records
+ SecsPerRecord(1)
+ SecsPerRecord(2)
+ DataFillDays(1)	Units: days
+ DataFillDays(2)	Units: days
+
+----------------------------------------------------
+Table: Public
+Fields:
+ BattV	Units: Volts
+ PTemp_C	Units: Deg C
+ VWC	Units: m^3/m^3
+ EC	Units: dS/m
+ T	Units: Deg C
+ P	Units: unitless
+ PA	Units: nSec
+ VR	Units: unitless
+ VWC_2	Units: m^3/m^3
+ EC_2	Units: dS/m
+ T_2	Units: Deg C
+ P_2	Units: unitless
+ PA_2	Units: nSec
+ VR_2	Units: unitless
+ VWC_3	Units: m^3/m^3
+ EC_3	Units: dS/m
+ T_3	Units: Deg C
+ P_3	Units: unitless
+ PA_3	Units: nSec
+ VR_3	Units: unitless
+ VWC_4	Units: m^3/m^3
+ EC_4	Units: dS/m
+ T_4	Units: Deg C
+ P_4	Units: unitless
+ PA_4	Units: nSec
+ VR_4	Units: unitless
+ VWC_5	Units: m^3/m^3
+ EC_5	Units: dS/m
+ T_5	Units: Deg C
+ P_5	Units: unitless
+ PA_5	Units: nSec
+ VR_5	Units: unitless
+ VWC_6	Units: m^3/m^3
+ EC_6	Units: dS/m
+ T_6	Units: Deg C
+ P_6	Units: unitless
+ PA_6	Units: nSec
+ VR_6	Units: unitless
+ TT_C	Units: Deg C
+ SBT_C	Units: Deg C
+ TTmV
+ Modbus(1)
+ Modbus(2)
+ Modbus(3)
+ Modbus(4)
+ Modbus(5)
+ Modbus(6)
+ Modbus(7)
+ Modbus(8)
+ Modbus(9)
+ Modbus(10)
+ Modbus(11)
+ Modbus(12)
+ Modbus(13)
+ Modbus(14)
+ ModbusCoil(1)
+ ModbusCoil(2)
+ ModbusCoil(3)
+ ModbusCoil(4)
+ ModbusCoil(5)
+ ModbusCoil(6)
+ ModbusCoil(7)
+ ModbusCoil(8)
+
